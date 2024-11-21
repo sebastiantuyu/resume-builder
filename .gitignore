@@ -1,0 +1,5 @@
+/packages
+/temp
+*.log
+*.aux
+*.out

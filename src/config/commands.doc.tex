@@ -1,0 +1,43 @@
+\newcommand{\translate}[2]{
+  \ifnum\pdfstrcmp{\lang}{english}=0
+    #1
+  \else
+    #2
+  \fi
+}
+
+\newcommand{\italicitem}[1]{\item{\textit{#1}}}
+\newcommand{\bolditem}[1]{\item{\textbf{#1}}}
+\newcommand{\plainitem}[1]{\item{#1}}
+\newcommand{\link}[2]{{\href{#1}{#2}}}
+\newcommand{\entry}[2]{#1 & #2 \tabularnewline} % Defines an entry with two arguments: #1 for the first column and #2 for the second column
+
+%----------------------------------------------------------------------------------------
+%   Define envsection command for defining a new environment section
+%----------------------------------------------------------------------------------------
+
+\newcommand{\tableEnv}[2]{
+  \begin{rSection}{#1}
+    \begin{adjustwidth}{0.0in}{0.1in}
+      \begin{tabularx}{\linewidth}{@{} >{\bfseries}l @{\hspace{6ex}} X @{}}
+        #2
+      \end{tabularx}
+    \end{adjustwidth}
+  \end{rSection}
+}
+
+
+\newcommand{\tableEnvSkills}[2]{
+  \begin{rSection}{#1}
+      \begin{tabularx}{\linewidth}{@{} >{\bfseries}l @{} X @{}}
+        #2
+      \end{tabularx}
+  \end{rSection}
+}
+
+
+\newcommand{\email}{
+    \textbf{
+      \href{\mail}{\underline{\mail}}
+    }
+}

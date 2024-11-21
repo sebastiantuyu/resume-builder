@@ -1,0 +1,25 @@
+#! /bin/bash
+BASE_NAME=Resume_2024
+
+mkdir -p ./temp
+
+if [ -f compile.log ]; then
+  rm compile.log
+fi
+
+pdflatex \
+  -interaction=nonstopmode \
+  -output-directory=./temp \
+  -jobname=${BASE_NAME}_ES \
+  "\def\lang{spanish}\input{resume.tex}" \
+  > ./temp/compile.log 2>&1
+
+
+pdflatex \
+  -interaction=nonstopmode \
+  -output-directory=./temp \
+  -jobname=${BASE_NAME}_EN \
+  "\def\lang{english}\input{resume.tex}" \
+  > ./temp/compile.log 2>&1
+
+exit 0
