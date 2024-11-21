@@ -20,8 +20,11 @@ jobs:
       - name: Run build script
         run: ./scripts/build
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+      - name: Upload PDFs to release
+        uses: ncipollo/release-action@v1
         with:
-          name: Generated PDFs
-          path: temp/*.pdf
+          artifacts: "temp/*.pdf"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: "latest"
+          name: "Generated PDFs"
+          body: "Updated PDFs in the release"
